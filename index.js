@@ -1,63 +1,40 @@
-
 var form = $('form');
 form.hide();
-$('.available').on('click', function () {
-    form.show();
-});
+
+
 var currentTable;
-$('.available').on('click', function () {
-    currentTable = $(this);
-    form.show();
+$('.available').on('click', function() {
+  currentTable = $(this);
+  $('#newRes').text(currentTable.attr('id').substring(5))
+  $('form').fadeIn(500);
+  form.show();
 });
 
-$('#save').on('click', function () {
-    currentTable.addClass('reserved');
-    form.hide();
 
+$('#save').on('click', function() {
+  currentTable.addClass('reserved');
+  var userName = $('.name').val();
+  var guestCount = $('.table-number').val();
+  currentTable.append(`<div class = "tool-tip"> Name: ${userName}<br> Guests: ${guestCount}</div>`)
+  currentTable.css("background-color", '#ADAAAA')
 
+  form.fadeOut();
+  $("#myForm")[0].reset();
 });
 
-$('#table1').on('click', function () {
-    $('#table1')
-        .css("background-color", '#ADAAAA')
+
+
+
+
+var numberDisplay;
+$('#number').on('click', function() {
+  currentTable = $(this);
 });
 
-$('#table2').on('click', function () {
-    $('#table2')
-        .css("background-color", '#ADAAAA')
-});
 
-$('#table3').on('click', function () {
-    $('#table3')
-        .css("background-color", '#ADAAAA')
-});
 
-$('#table4').on('click', function () {
-    $('#table4')
-        .css("background-color", '#ADAAAA')
-});
 
-$('#table5').on('click', function () {
-    $('#table5')
-        .css("background-color", '#ADAAAA')
-});
 
-$('#table6').on('click', function () {
-    $('#table6')
-        .css("background-color", '#ADAAAA')
-});
-
-$('#table7').on('click', function () {
-    $('#table7')
-        .css("background-color", '#ADAAAA')
-});
-
-$('#table8').on('click', function () {
-    $('#table8')
-        .css("background-color", '#ADAAAA')
-});
-
-$('#table9').on('click', function () {
-    $('#table9')
-        .css("background-color", '#ADAAAA')
+$('.material-icons').on('click', function() {
+  form.fadeOut();
 });
